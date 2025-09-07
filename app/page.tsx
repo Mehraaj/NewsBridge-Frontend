@@ -81,6 +81,9 @@ export default function HomePage() {
       try {
         const response = await fetch("/api/users/me", {
           credentials: "include",
+          headers: {
+            Cookie: localStorage.getItem('sessionToken') || ''
+          }
         })
         
         if (!response.ok) {
