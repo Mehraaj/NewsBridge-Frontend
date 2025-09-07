@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 export async function GET(request: Request) {
   try {
     // Get the cookie 'sessionToken' from the incoming request
-    const cookie = request.headers.get('cookie')
+    const cookie = localStorage.getItem('sessionToken')
     console.log("In me route, incoming cookie header:", cookie)
     console.log("In me route, process.env.NEXT_PUBLIC_API_URL:", process.env.NEXT_PUBLIC_API_URL)
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/current-session`, {

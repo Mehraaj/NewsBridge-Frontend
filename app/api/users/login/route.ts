@@ -36,7 +36,7 @@ export async function POST(request: Request) {
         headers.append(key, value)
       }
     })
-
+    localStorage.setItem('sessionToken', data.sessionToken)
     console.log("Login successful, returning response")
     return NextResponse.json(data, {
       status: 200,

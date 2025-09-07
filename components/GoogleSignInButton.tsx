@@ -25,11 +25,13 @@ export function GoogleSignInButton() {
       })
       
       const data = await res.json()
-      console.log('Backend response:', data);
+      console.log('Backend response to Google sign-in:', data);
       console.log('Checking data now', data.user.status);
 
       if (data.user.status === 'success') {
         console.log('User signed in successfully:', data.user);
+        //save sesion token to cookie
+        localStorage.setItem('sessionToken', data.sessionToken)
         //redirect to the home page
         router.push('/')
       } else {
