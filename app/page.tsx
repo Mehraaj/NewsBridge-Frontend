@@ -106,7 +106,7 @@ export default function HomePage() {
       }
     }
 
-    checkAuth()
+    //checkAuth()
   }, [router])
 
   useEffect(() => {
