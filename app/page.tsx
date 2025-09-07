@@ -77,12 +77,13 @@ export default function HomePage() {
 
   useEffect(() => {
     // Check if we have a session token
+    console.log("sessionToken in checkAuth", localStorage.getItem('sessionToken'))
     const checkAuth = async () => {
       try {
         const response = await fetch("/api/users/me", {
           credentials: "include",
           headers: {
-            Cookie: localStorage.getItem('sessionToken') || ''
+            Cookie: `sessionToken=${localStorage.getItem('sessionToken') || ''}`
           }
         })
         
