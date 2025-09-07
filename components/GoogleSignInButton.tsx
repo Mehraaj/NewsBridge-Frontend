@@ -14,8 +14,8 @@ export function GoogleSignInButton() {
 
       console.log('Making request to backend for Google sign-in...');
       //make a fetch request to the backend providing the token and the provider
-      //console.log('API URL:', process.env.NEXT_PUBLIC_API_URL);
-      const res = await fetch(`http://localhost:5001/users/loginWithGoogle`, {
+      console.log('API URL:', process.env.NEXT_PUBLIC_API_URL);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/loginWithGoogle`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
