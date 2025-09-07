@@ -29,7 +29,10 @@ async function fetchArticles(
   //console.log('Fetching from URL:', url);
   
   const response = await fetch(url, {
-    credentials: 'include'
+    credentials: 'include',
+    headers: {
+      Cookie: `sessionToken=${localStorage.getItem('sessionToken') || ''}`
+    }
   })
   //console.log("fetched")
   if (!response.ok) {
